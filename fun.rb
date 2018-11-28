@@ -3,9 +3,13 @@ require 'pry'
 class Fun
   class << self
     def is_palindrome?(word)
-      word.chars.each_index do |i|
-        return false if word[i] != word[word.length - i]
+      charcters = word.downcase.chars
+
+      while charcters.size > 1 do
+        return false if charcters.pop != charcters.shift
       end
+
+      true
     end
 
     def fizzbuzz(range)
